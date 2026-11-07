@@ -1,0 +1,9 @@
+{
+  "name": "achadinhos-helo-esportes",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "node prepare-vercel.cjs",
+    "test": "node --test tests/*.test.cjs"
+  }
+}

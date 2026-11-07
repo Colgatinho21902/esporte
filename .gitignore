@@ -1,0 +1,9 @@
+.env
+.env.*
+.vercel/
+.openai/
+node_modules/
+__pycache__/
+*.zip
+*.tar.gz
+evidence/

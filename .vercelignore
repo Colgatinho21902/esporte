@@ -1,0 +1,10 @@
+.git
+.openai
+.env
+.env.*
+.vercel
+node_modules
+tests
+evidence
+*.zip
+*.tar.gz
