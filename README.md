@@ -10,7 +10,7 @@ Landing page móvel com CTA para o grupo de WhatsApp. Logo original em verde, co
 4. Não precisa cadastrar token ou variável secreta. Mantenha habilitado o acesso às **System Environment Variables** da Vercel.
 5. Clique Deploy. Após concluir, teste o convite e o Pixel no endereço publicado.
 
-O build usa `VERCEL_ENV` para ativar a medição somente em produção e reconhece automaticamente os domínios fornecidos pela Vercel em `VERCEL_PROJECT_PRODUCTION_URL`, `VERCEL_URL` e `VERCEL_BRANCH_URL`. Deploys de prévia ficam sem medição. Ao trocar o domínio ou adicionar domínio próprio, faça novo deploy para regenerar a configuração.
+O build usa `VERCEL_ENV` para ativar a medição somente em produção e reconhece automaticamente os domínios fornecidos pela Vercel em `VERCEL_PROJECT_PRODUCTION_URL`, `VERCEL_URL` e `VERCEL_BRANCH_URL`. Deploys de prévia ficam sem medição. O domínio confirmado achadinhosesporte.vercel.app também está explicitamente autorizado em trackingHosts no config.json, para funcionar mesmo se a Vercel mantiver um alias antigo como principal. Ao trocar o domínio ou adicionar domínio próprio, inclua o novo host em trackingHosts e faça novo deploy.
 
 ## Configurações e medição
 

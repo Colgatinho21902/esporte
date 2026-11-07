@@ -19,7 +19,9 @@
   "pixelId": "1042681992165459",
   "conversionEvent": "Lead",
   "trackingEnabled": true,
-  "trackingHosts": [],
+  "trackingHosts": [
+    "achadinhosesporte.vercel.app"
+  ],
   "theme": {
     "background": "#06130e",
     "accent": "#56ee91",

@@ -8,7 +8,7 @@ function build(env = process.env, root = __dirname) {
   if (!/^\d{10,20}$/.test(config.pixelId)) throw new Error('ID de Pixel inválido.');
   if (env.VERCEL === '1' && !env.VERCEL_ENV) throw new Error('Ative o acesso às System Environment Variables na Vercel.');
   const production = env.VERCEL_ENV === 'production';
-  const hosts = [env.VERCEL_PROJECT_PRODUCTION_URL, env.VERCEL_URL, env.VERCEL_BRANCH_URL].filter(Boolean);
+  const hosts = [...(config.trackingHosts || []), env.VERCEL_PROJECT_PRODUCTION_URL, env.VERCEL_URL, env.VERCEL_BRANCH_URL].filter(Boolean);
   if (production && !hosts.length) throw new Error('Domínio de produção não informado pela Vercel.');
   config.trackingEnabled = config.trackingEnabled === true && production;
   config.trackingHosts = production ? [...new Set(hosts.map(host => {

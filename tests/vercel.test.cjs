@@ -13,7 +13,7 @@ function isolated(fn){
 test('production resolves its actual Vercel hosts and preserves real Pixel and invitation',()=>isolated(dir=>{
  const config=build({VERCEL:'1',VERCEL_ENV:'production',VERCEL_PROJECT_PRODUCTION_URL:'esporte.example',VERCEL_URL:'esporte-abc.vercel.app',VERCEL_BRANCH_URL:'esporte-git-main.vercel.app'},dir);
  assert.equal(config.trackingEnabled,true);assert.equal(config.pixelId,'1042681992165459');
- assert.deepEqual(config.trackingHosts,['esporte.example','esporte-abc.vercel.app','esporte-git-main.vercel.app']);
+ assert.deepEqual(config.trackingHosts,['achadinhosesporte.vercel.app','esporte.example','esporte-abc.vercel.app','esporte-git-main.vercel.app']);
  const html=fs.readFileSync(path.join(dir,'dist/index.html'),'utf8');
  assert.equal((html.match(/id="ctaPrincipal"/g)||[]).length,1);
  assert.ok(html.includes('href="https://chat.whatsapp.com/DUNIFFzsCFt98ub8PohS8t"'));
@@ -27,5 +27,5 @@ test('preview remains disabled even when Vercel exposes the production domain',(
 test('local build is disabled; missing production environment information fails clearly',()=>isolated(dir=>{
  assert.equal(build({},dir).trackingEnabled,false);
  assert.throws(()=>build({VERCEL:'1'},dir),/System Environment Variables/);
- assert.throws(()=>build({VERCEL_ENV:'production'},dir),/Domínio/);
+ assert.equal(build({VERCEL_ENV:'production'},dir).trackingHosts.includes('achadinhosesporte.vercel.app'),true);
 }));
